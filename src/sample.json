@@ -1,0 +1,30 @@
+{
+	programmers: {
+		list: ['Bill', 'Bob'],
+		names: {
+			Bill: {
+				skills: ['CS', 'JS'],
+				recommendations: ['Bob']
+			},
+			Bob: {
+				skills: ['CS', 'JS'],
+				recommendations: ['Bill']
+			},
+			...
+		}
+	},
+	
+	skills: {
+		list: ['CS', 'JS'],
+		names: {
+			CS: {
+				programmers: ['Bill', 'Bob']
+			},
+			JS: {
+				programmers: ['Bill', 'Bob']
+			},
+			...
+		}
+	}
+	
+}
