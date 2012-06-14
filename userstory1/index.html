@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>Team Dojo</title>
+		<script src="../lib/jquery_1.7.2.min.js"></script>
+		<script src="../src/base.js"></script>
+		<script type="text/javascript">
+		
+		var data = {
+				programmers: {
+					list: ['Bill', 'Bob'],
+					names: {
+						Bill: {
+							skills: ['CS', 'JS'],
+							recommendations: ['Bob']
+						},
+						Bob: {
+							skills: ['CS', 'JS'],
+							recommendations: ['Bill']
+						}
+					}
+				},
+				
+				skills: {
+					list: ['CS', 'JS'],
+					names: {
+						CS: {
+							programmers: ['Bill', 'Bob']
+						},
+						JS: {
+							programmers: ['Bill', 'Bob']
+						}
+					}
+				}
+				
+			};
+		
+		$(function () {
+			
+			//pronet.getData(function (data) {				
+				
+				var reportEl = document.getElementById('report');
+				
+				data.programmers.list.sort();
+							
+				$.each(data.programmers.list, function (i, name) {
+				
+					var rowEl = document.createElement('tr');					
+					var cellEl_0 = document.createElement('td'); 
+					var cellEl_1 = document.createElement('td');
+					var cellEl_2 = document.createElement('td');
+					
+					cellEl_0.innerHTML = name;
+					cellEl_1.innerHTML = data.programmers.names[name].skills.join(', ');
+					cellEl_2.innerHTML = data.programmers.names[name].recommendations.join(', ');					
+					
+					rowEl.appendChild(cellEl_0);
+					rowEl.appendChild(cellEl_1);
+					rowEl.appendChild(cellEl_2);
+					
+					reportEl.appendChild(rowEl);
+					
+				});
+				
+			//});			
+			
+		});
+		
+		</script>
+		<style type="text/css">
+		
+		body {
+			font-family: Arial;
+			font-size: 12px;
+		}
+		
+		.reportTable {
+			width: 600px;
+			border: 1px solid #EAEAEA;
+			font-size: 12px;
+		}
+		
+		.reportTable td {
+			padding: 5px;
+		}
+		
+		.reportTable thead td {
+			background-color: #666666;
+			color: #FFFFFF;
+			font-weight: bold;
+		}
+		
+		.reportTable tbody td {
+			border: 1px solid #EAEAEA;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<h1>Team Dojo - User Story 1</h1>
+		
+		<table class="reportTable">
+			<thead>
+				<tr>
+					<td>Programmer</td>
+					<td>Skills</td>
+					<td>Recommends</td>
+				</tr>				
+			</thead>
+			<tbody id="report"></tbody>
+		</table>
+		
+	</body>
+</html>
