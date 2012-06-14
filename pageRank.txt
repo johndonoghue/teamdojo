@@ -1,0 +1,17 @@
+
+
+function pageRank(programmer) {
+	
+  var i;
+  var recommendations = programmer.recommendations;
+  var kudos = 0;
+  
+  for (i=0; i < recommendations.length; i++) {
+      var recommendation = programmers.names[recommendations[i]]
+	  kudos = kudos + (pageRank(recommendation)/c(n);
+  }
+  
+  return (1-0.85) + 0.85*kudos;
+   
+
+}
